@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import VoterStatus from './components/VoterStatus';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Ballot from './components/Party';
+import Success from './pages/Success';
+import Child from './components/Child';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+
+   
+    return (
+        <Router >
+            <Switch>
+                <Route exact path='/'>
+        < VoterStatus />
+                </Route>
+                <Route exact path='/vote'>
+        < Ballot  />
+                </Route>
+                <Route exact path='/voteOk'>
+        < Success  />
+                </Route>
+                <Route exact path='/voteHome'>
+        < Child  />
+                </Route>
+            </Switch>
+        </Router>
+            
+    )
 }
 
-export default App;
+export default App
